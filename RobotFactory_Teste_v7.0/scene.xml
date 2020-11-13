@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<scene>
+  <defines>
+    <const name='corridor_width' value='0.76' />
+    <const name='central_corridor_width' value='1' />
+    <const name='machine_width' value='0.180' />  
+    <const name='machine_depth' value='0.120' />
+    <const name='max_field_y' value='corridor_width + machine_width' />
+    <const name='max_field_x' value='central_corridor_width/2 + corridor_width + 2*machine_depth' />
+    <const name='wharehouse_slack' value='0.28' />
+    <const name='wharehouse_pos_y' value='corridor_width + machine_width + machine_depth/2' />
+    <const name='wharehouse_pos_x' value='-central_corridor_width/2 - corridor_width - 2*machine_depth + wharehouse_slack + machine_width/2' />
+    <const name='ground' value='0.001' />
+    <const name='part_pos_z' value='0.015' />
+    <const name='sensor_pos_z' value='0.13' />
+  </defines>
+
+  <robot> 
+    <ID name='AGV'/>
+    <pos x='0' y='1.0' z='0'/> 
+    <rot_deg x='0' y='0' z='180'/>
+    <body file='AGV.xml'/>
+  </robot>
+  
+  <robot> 
+    <ID name='Camera_System'/>
+    <pos x='0' y='1.90' z='0'/> 
+    <rot_deg x='0' y='0' z='0'/>
+    <body file='camera_system.xml'/>
+  </robot>
+  
+  <robot>
+    <ID name='Lidar_System'/>
+    <pos x='0' y='2' z='0'/> 
+    <rot_deg x='0' y='0' z='0'/>
+    <body file='lidar_system.xml'/>
+  </robot> 
+  
+
+  <things file='things.xml'/>
+
+  <obstacles file='walls.xml'/>
+
+  <nosensors file='cell_sensors.xml'/>
+
+</scene>
+

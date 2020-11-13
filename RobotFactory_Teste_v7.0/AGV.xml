@@ -1,0 +1,239 @@
+<?xml version="1.0" ?>
+
+  
+<robot>
+
+  <defines>
+	
+	<!-- Base constants -->
+	<const name='base_height' value='0.175'/>   
+	<const name='base_radius' value='0.10'/>
+	<const name='base_mass' value='3'/>
+	    
+    <!-- Wheel Contants -->
+    <const name='wheel_diameter' value='0.045'/>
+    <const name='wheel_thickness' value='0.015'/>
+    <const name='wheel_mass' value='0.8'/>   
+	
+	<!--Caster Contants -->
+    <const name='caster_height' value='wheel_diameter'/>  
+    <const name='caster_diameter' value='0.006'/>      
+    <const name='caster_mass' value='0.2'/>  
+	
+	<!-- LED Contants -->
+    <const name='led_dim_x' value='0.0350'/>  
+	<const name='led_dim_y' value='0.0100'/>  
+	<const name='led_dim_z' value='0.1015'/>  
+
+	<!-- Positions -->
+	<const name='base_posx' value='0'/>
+	<const name='base_posy' value='0'/>
+	<const name='base_posz' value='base_height/2 + wheel_diameter/2'/>
+	
+	<const name='rwheel_posx' value='base_radius + wheel_thickness/2'/>
+	<const name='rwheel_posy' value='0'/>
+	<const name='rwheel_posz' value='wheel_diameter/2'/>
+	
+	<const name='lwheel_posx' value=' -(base_radius + wheel_thickness/2)'/>
+	<const name='lwheel_posy' value='0'/>
+	<const name='lwheel_posz' value='wheel_diameter/2'/>
+	
+	<const name='caster1_posx' value='0'/>
+	<const name='caster1_posy' value='7*base_radius/8'/>
+	<const name='caster1_posz' value='0'/>
+	
+	<const name='caster2_posx' value='0'/>
+	<const name='caster2_posy' value='-(7*base_radius/8)'/>
+	<const name='caster2_posz' value='0'/>
+	
+	<const name='led_pos_z' value='0.000'/>
+
+  </defines>
+   
+   
+   
+  <solids>
+  	
+	 <cylinder>
+      <ID value='Base'/>
+      <mass value='base_mass'/>                                        
+      <size x='base_radius' y='base_radius' z='base_height'/>
+      <nopos x='base_posx' y='base_posy' z='base_posz+0.055'/> 
+      <pos x='base_posx' y='base_posy' z='base_posz+0.055'/> 
+      <rot_deg x='0' y='0' z='0'/>
+      <color_rgb r='255' g='255' b='255'/>
+    </cylinder>
+	 
+    <cylinder>
+      <ID value='Right_Wheel'/>
+      <mass value='wheel_mass'/>
+      <size x='wheel_diameter' y='wheel_diameter' z='wheel_thickness'/>
+      <pos x='rwheel_posx' y='rwheel_posy' z='rwheel_posz'/>
+      <rot_deg x='0' y='90' z='0'/>
+      <color_rgb r='255' g='255' b='0'/>
+    </cylinder>
+
+    <cylinder>
+      <ID value='Left_Wheel'/>
+      <mass value='wheel_mass'/>
+      <size x='wheel_diameter' y='wheel_diameter' z='wheel_thickness'/>
+      <pos x='lwheel_posx' y='lwheel_posy' z='lwheel_posz'/>
+      <rot_deg x='0' y='90' z='0'/>
+      <color_rgb r='255' g='255' b='0'/>
+    </cylinder>
+	
+	<cylinder>
+      <ID value='CasterPole1'/>
+      <mass value='caster_mass'/>
+      <size x='caster_diameter' y='caster_diameter' z='caster_height'/>
+      <pos x='caster1_posx' y='caster1_posy' z='caster1_posz'/>
+      <rot_deg x='0' y='0' z='0'/>
+      <nodrag stokes='1e-4' roll='1e-4'/>
+      <color_rgb r='255' g='255' b='0'/>
+      <surface mu='0.1'/>
+    </cylinder>
+	
+	<cylinder>
+      <ID value='CasterPole2'/>
+      <mass value='caster_mass'/>
+      <size x='caster_diameter' y='caster_diameter' z='caster_height'/>
+      <pos x='caster2_posx' y='caster2_posy' z='caster2_posz'/>
+      <rot_deg x='0' y='0' z='0'/>
+      <nodrag stokes='1e-4' roll='1e-4'/>
+      <color_rgb r='0' g='0' b='255'/>
+      <surface mu='0.1'/>
+    </cylinder>
+  	
+  </solids>
+  
+
+  <shells>
+   
+    <nsphere>
+      <ID value='Slide pad'/>
+      <pos x='base_radius/2' y='base_radius/2' z='base_height/2'/> 
+      <radius value='caster_diameter'/>
+      <nomass value='0.2'/>
+      <surface mu='0.1' softness='0.1'/>
+    </nsphere>
+	
+	<cylinder>
+      <ID value='Moootor'/>                                  
+      <size x='base_radius' y='base_radius' z='0.1'/>
+      <pos x='base_posx' y='base_posy' z='-0.135'/> 
+      <rot_deg x='0' y='0' z='0'/>
+      <color_rgb r='255' g='69' b='0'/>
+    </cylinder>
+	
+			
+	<cuboid>
+      <ID value='Led_r1'/> <!-- Azul -->
+      <size x='led_dim_x' y='led_dim_y' z='led_dim_z'/> <!--  z='0.012' -->
+      <pos x='0' y='-0.05' z='led_pos_z'/>
+      <rot_deg x='90' y='90' z='0'/>
+      <color_rgb r='0' g='0' b='255'/>
+    </cuboid>
+	
+	<cuboid>
+      <ID value='Led_r2'/> <!-- Vermelho -->
+      <size x='led_dim_x' y='led_dim_y' z='led_dim_z'/> <!--  z='0.012' -->
+       <pos x='-0.043' y='0.025' z='led_pos_z'/>
+      <rot_deg x='30' y='90' z='0'/>
+      <color_rgb r='255' g='0' b='0'/>
+    </cuboid>
+	
+	<cuboid>
+      <ID value='Led_r3'/> <!-- Azul Claro -->
+      <size x='led_dim_x' y='led_dim_y' z='led_dim_z'/> <!--  z='0.012' -->
+       <pos x='-0.043' y='-0.025' z='led_pos_z'/>
+      <rot_deg x='-30' y='90' z='0'/>
+      <color_rgb r='0' g='255' b='255'/>
+    </cuboid>
+
+	<cuboid>
+      <ID value='Led_r4'/> <!-- Amarelo -->
+      <size x='led_dim_x' y='led_dim_y' z='led_dim_z'/> <!--  z='0.012' -->
+       <pos x='0' y='0.050' z='led_pos_z'/>
+      <rot_deg x='-90' y='90' z='0'/>
+      <color_rgb r='255' g='255' b='0'/>
+    </cuboid>
+	
+	<cuboid>
+      <ID value='Led_r5'/> <!-- Verde -->
+      <size x='led_dim_x' y='led_dim_y' z='led_dim_z'/> <!--  z='0.012' -->
+       <pos x='0.043' y='-0.025' z='led_pos_z'/>
+      <rot_deg x='-150' y='90' z='0'/>
+      <color_rgb r='0' g='255' b='0'/>
+    </cuboid>
+	
+	<cuboid>
+      <ID value='Led_r6'/> <!-- Rosa -->
+      <size x='led_dim_x' y='led_dim_y' z='led_dim_z'/> <!--  z='0.012' -->
+       <pos x='0.043' y='0.025' z='led_pos_z'/>
+      <rot_deg x='-210' y='90' z='0'/>
+      <color_rgb r='255' g='0' b='255'/>
+    </cuboid>
+	 
+  </shells>
+ 
+ 
+  <articulations>
+    
+    <default>
+      <ndraw radius='0.005' height='0.1' rgb24='8F8F8F'/>
+      <motor ri='7.10171308326432' li='3.4e-3' ki='0.509777972762535' vmax='15' imax='1' active='1'/>
+      <gear ratio='1'/>
+      <friction bv='0.000931862949511341' fc='0.0400169420033648'/>
+      <encoder ppr='360' mean='0' stdev='0'/>
+      <controller mode='pidspeed' kp='1' ki='0' kd='0' kf='0.05' active='1' period='10'/>
+      <spring k='0' zeropos='0'/>
+    </default>    
+    
+    <joint>
+      <ID value='Right_Axis'/>
+      <connect B1='Right_Wheel' B2='Base'/>
+      <pos x='rwheel_posx' y='rwheel_posy' z='rwheel_posz'/>
+      <axis x='1' y='0' z='0'/>
+      <type value='Hinge'/>
+    </joint>
+	
+	<joint>
+      <ID value='Left_Axis'/>
+      <connect B1='Left_Wheel' B2='Base'/>
+      <pos x='lwheel_posx' y='lwheel_posy' z='lwheel_posz'/>
+      <axis x='1' y='0' z='0'/>
+      <type value='Hinge'/>
+    </joint>
+
+     <joint>
+      <ID value='CasterPoleToBase1'/>
+      <connect B1='CasterPole1' B2='Base'/>
+      <pos x='caster1_posx' y='caster1_posy' z='caster1_posz'/>
+      <axis x='0' y='0' z='1'/>
+      <type value='Hinge'/>
+      <motor active='0'/>
+      <controller active='0'/>
+    </joint>
+	
+	 <joint>
+      <ID value='CasterPoleToBase2'/>
+      <connect B1='CasterPole2' B2='Base'/>
+      <pos x='caster2_posx' y='caster2_posy' z='caster2_posz'/>
+      <axis x='0' y='0' z='1'/>
+      <type value='Hinge'/>
+      <motor active='0'/>
+      <controller active='0'/>
+    </joint>
+    
+  </articulations>
+  
+   
+  <sensors>
+     
+  </sensors>
+  
+     
+</robot>
+    
+    
+    

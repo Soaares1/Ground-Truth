@@ -1,0 +1,138 @@
+<?xml version="1.0" ?>
+
+<robot>
+
+  <defines>
+
+	<!-- Base constants -->
+	<const name='base_height' value='0.23'/>   
+	<const name='base_diameter' value='0.010'/>  
+	<const name='base_mass' value='3'/>
+	
+	<!-- supcam constants -->
+	<const name='supcam_height' value='0.05'/>   
+	<const name='supcam_diameter' value='0.01'/>  
+	<const name='supcam_mass' value='3'/>
+	
+	<!-- Motor constants -->
+	<const name='motor_height' value='0.02'/>  
+	<const name='motor_diameter' value='0.02'/>
+	
+	<!-- Wheel constants -->
+	<const name='wheel_diameter' value='0.03'/>  
+	<const name='wheel_thickness' value='0.01'/> 
+	<const name='wheel_mass' value='3'/> 
+	
+	<!-- Support Contants -->
+    <const name='support_diameter' value='0.001'/>    
+    <const name='support_to_wheel' value='0.05'/>    
+    <const name='support_wheel_mass' value='0.2'/>  
+    <const name='support_mass' value='0.01'/>  
+	<const name='support_height' value='0.03'/>  
+	
+	<!-- Cube constants -->
+	<const name='cube_dimensions' value='0.025'/>
+	<const name='cube_mass' value='1'/>
+	
+	<!-- Positions -->
+	
+	<const name='ref_origin_1x' value='0'/>
+	<const name='ref_origin_1y' value='0'/>
+	<const name='ref_origin_1z' value='0'/>
+			
+	<const name='base_posx' value='ref_origin_1x'/>
+	<const name='base_posy' value='ref_origin_1y'/>
+	<const name='base_posz' value='ref_origin_1z + base_height / 2'/>
+	
+	<const name='support1_posx' value='ref_origin_1x'/>
+	<const name='support1_posy' value='ref_origin_1y'/>
+	<const name='support1_posz' value='ref_origin_1z + support_height/2'/>
+
+  </defines>
+   
+   
+  <solids>
+    
+    <cylinder>
+      <ID value='Base'/>
+      <mass value='base_mass'/>                                        
+      <size x='base_diameter' y='base_diameter' z='base_height'/>
+      <nopos x='base_posx' y='base_posy' z='base_posz'/> 
+      <pos x='base_posx' y='base_posy' z='base_posz'/> 
+	  <rot_deg x='0' y='0' z='0'/>
+      <color_rgb r='64' g='64' b='255'/>
+    </cylinder>
+		
+    <cylinder>
+      <ID value='Support1'/>
+      <mass value='0.00001'/>
+      <size x='support_diameter' y='support_diameter' z='support_height'/>
+      <pos x='support1_posx' y='support1_posy' z='support1_posz'/>
+      <rot_deg x='0' y='0' z='0'/>
+      <nodrag stokes='0' roll='0'/>
+      <color_rgb r='128' g='128' b='128'/>
+      <surface mu='0.1'/>
+    </cylinder>
+	
+  </solids>
+
+
+  <shells>
+		
+    <cylinder>
+      <ID value='LaserRanger'/>
+      <size x='0.025' z='0.06'/>
+      <pos x='0' y='0' z='0.11'/>
+      <rot_deg x='0' y='0' z='0'/>
+      <color_rgb r='64' g='64' b='64'/>
+    </cylinder>
+		
+  </shells>
+ 
+ 
+  <articulations>
+
+    <default>
+      <ndraw radius='0.005' height='0.1' rgb24='8F8F8F'/>
+      <motor ri='7.10171308326432' li='3.4e-3' ki='0.509777972762535' vmax='15' imax='1' active='1'/>
+      <gear ratio='1'/>
+      <friction bv='0.000931862949511341' fc='0.0400169420033648'/>
+      <encoder ppr='360' mean='0' stdev='0'/>
+      <controller mode='pidspeed' kp='1' ki='0' kd='0' kf='0.05' active='1' period='10'/>
+      <spring k='0' zeropos='0'/>
+    </default>    
+	     
+<!--     <joint> 
+      <ID value='Support1_Base_Joint'/>
+      <connect B1='Support1' B2='Base'/>
+      <pos x='support1_posx' y='support1_posy' z='support1_posz'/>
+      <axis x='0' y='0' z='1'/>
+      <type value='Hinge'/>
+      <motor active='0'/>
+      <controller active='0'/>
+    </joint> -->
+	
+  </articulations>
+
+       
+	<sensors>
+  	  
+	 <ranger2d>
+      <ID value='ranger2d'/> 
+      <beam length='4.5*sqrt(2)' initial_width='0.005' final_width='0.005'/> <!-- 3.25 ~ 3*sqrt(2)-->
+      <period value = '0.1'/>
+      <pos x='0' y='0' z='0.11'/>
+      <rot_deg x='0' y='0' z='270'/>
+      <tag value='00'/>
+      <beam angle='180' rays='360'/>
+      <noise stdev='0.03' stdev_p='0.0' offset='0' gain='1'/> <!-- stdev='0.03' -->
+      <color_rgb r='255' g='0' b='0'/>
+    </ranger2d>    
+
+  </sensors>
+  
+     
+</robot>
+    
+    
+    

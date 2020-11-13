@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<sheet>
+  <columns>
+    <defaultcol width="50" />
+    <col num="4" width="81" />
+    <col num="5" width="77" />
+    <col num="7" width="52" />
+    <col num="12" width="61" />
+  </columns>
+  <cells>
+    <cell r="10" c="1" text="0.00152" />
+    <cell r="2" c="9" text="[Start Log]" />
+    <cell r="2" c="10" text="[Stop Log]" />
+    <cell r="2" c="11" text="[Save Log]" />
+    <cell r="2" c="12" text="log_y1.txt" />
+    <cell r="10" c="2" text="0.00147" />
+    <cell r="10" c="3" text="-180" />
+    <cell r="13" c="1" text="-0.0000197" />
+    <cell r="13" c="2" text="1.9" />
+    <cell r="13" c="3" text="89.5" />
+    <cell r="16" c="1" text="0.0000219" />
+    <cell r="16" c="2" text="2" />
+    <cell r="16" c="3" text="-----" />
+    <cell r="13" c="5" text="90" />
+    <cell r="19" c="5" text="46" />
+    <cell r="21" c="5" text="140" />
+    <cell r="20" c="4" text="109" />
+    <cell r="20" c="6" text="204" />
+    <cell r="23" c="5" text="43" />
+    <cell r="24" c="5" text="5" />
+    <cell r="25" c="5" text="48" />
+    <cell r="26" c="5" text="45.5" />
+    <cell r="9" c="1" text="robot_posx" />
+    <cell r="9" c="2" text="robot_posy" />
+    <cell r="9" c="3" text="robot_ang" />
+    <cell r="12" c="1" text="cam_posx" />
+    <cell r="12" c="2" text="cam_posy" />
+    <cell r="12" c="3" text="cam_ang" />
+    <cell r="15" c="1" text="lidar_posx" />
+    <cell r="15" c="2" text="lidar_posy" />
+    <cell r="15" c="3" text="lidar_ang" />
+    <cell r="12" c="5" text="ang_alvo" />
+    <cell r="28" c="1" text="0.00149" />
+    <cell r="28" c="2" text="1.03" />
+    <cell r="28" c="3" text="81.58" />
+    <cell r="24" c="1" text="4.78E-8" />
+    <cell r="24" c="2" text="1.02" />
+    <cell r="24" c="3" text="86.58" />
+    <cell r="22" c="1" text="Estimado" />
+    <cell r="23" c="1" text="x" />
+    <cell r="23" c="2" text="y" />
+    <cell r="23" c="3" text="angulo" />
+    <cell r="26" c="1" text="Real" />
+    <cell r="27" c="1" text="x" />
+    <cell r="27" c="2" text="y" />
+    <cell r="27" c="3" text="angulo" />
+    <cell r="23" c="4" text="conta_branco" />
+    <cell r="24" c="4" text="conta_cor" />
+    <cell r="25" c="4" text="raio" />
+    <cell r="26" c="4" text="medida" />
+    <cell r="30" c="1" text="Erro abs" />
+    <cell r="31" c="1" text="x" />
+    <cell r="31" c="2" text="y" />
+    <cell r="32" c="3" text="5.003" />
+    <cell r="31" c="3" text="angulo" />
+    <cell r="32" c="1" text="0.00149" />
+    <cell r="32" c="2" text="0.0122" />
+    <cell r="27" c="11" text="10" />
+    <cell r="20" c="8" text="154" />
+    <cell r="21" c="8" text="131" />
+    <cell r="2" c="2" text="Manual" />
+    <cell r="34" c="1" text="AGV" />
+  </cells>
+</sheet>
